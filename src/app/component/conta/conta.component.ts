@@ -12,6 +12,7 @@ export class ContaComponent implements OnInit {
   error: boolean = false;
   errorDesc: string = "";
   clienteSelecionado: string = "";
+  contacli:Conta = {};
   conta: Conta[] = [
     { cliente: "Arthur" },
     { cliente: "Daniel" },
@@ -21,6 +22,11 @@ export class ContaComponent implements OnInit {
   ];
 
   constructor(private router: Router) { }
+
+  gerarHash(hash:string){
+    hash = Math.random().toString(36).slice(-8);
+    console.log(hash)
+  }
 
   onCadastrarConta(formConta: NgForm) {
     console.log(formConta.value.hash, formConta.value.cliente);
@@ -38,6 +44,7 @@ export class ContaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.contacli.hash = Math.random().toString(36).slice(-10);
   }
 
 }

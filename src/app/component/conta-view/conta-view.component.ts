@@ -3,6 +3,7 @@ import { Cliente } from 'src/app/model/cliente.model';
 import { Conta } from 'src/app/model/conta.model';
 import { ButtonComponent } from 'src/app/component/button/button.component';
 import { AgGridAngular } from 'ag-grid-angular';
+import { ListContaService } from 'src/app/service/list-conta.service';
 
 @Component({
   selector: 'app-conta-view',
@@ -45,18 +46,13 @@ export class ContaViewComponent implements OnInit {
     },
   ];
 
-  linhas = [
-    { cliente: 'Arthur', hash: '001', saldo: 500 },
-    { cliente: 'Daniel', hash: '002', saldo: 255 },
-    { cliente: 'Kalila', hash: '003', saldo: 950 },
-    { cliente: 'Nilson', hash: '004', saldo: 260 },
-    { cliente: 'Reinaldo', hash: '005', saldo: 389 },
-  ];
+  linhas = [];
 
-  constructor() {
+  constructor(private contaListService: ListContaService) {
     this.frameworkComponents = {
       buttonRenderer: ButtonComponent,
     }
+    this.linhas = contaListService.execute();
   }
 
   currencyFormatter(saldo, sign) {

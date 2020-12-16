@@ -6,7 +6,7 @@ a {
   background: #020024;
 }
 
-button.btn.waves-effect.waves-light {
+.btn.waves-effect.waves-light {
   background-color: #020024 !important;
 }
 
@@ -87,35 +87,34 @@ tr > td > input {
   font-size: 40px !important;
 }
 
-.form-container{
+.form-container {
   margin: 0 auto;
   padding: 32px;
   min-width: 400px;
-  max-width: 1200px;
+  max-width: 1300px;
 }
 
-.main-container{
+.main-container {
   margin: 0 auto;
   margin-top: 32px;
   margin-left: 32px;
   margin-right: 32px;
 }
 
-.center{
+.center {
   margin: 0 auto;
 }
 
-
-#nav-mini{
+#nav-mini {
   display: none;
 }
 
 @media screen and (max-width: 1020px) {
-#nav-mobile{
-      display: none;
+  #nav-mobile {
+    display: none;
   }
 
-  #nav-mini{
+  #nav-mini {
     display: block;
   }
 }

@@ -2,7 +2,9 @@
   <form #formConta="ngForm" (ngSubmit)="onCadastrarConta(formConta)" novalidate>
     <h1>Cadastrar Conta</h1>
     <label for="hash">Chave</label>
-    <input type="text" name="hash" #hash="ngModel" ngModel required><br>
+    <!-- <input type="text" name="hash" #hash="ngModel" ngModel required><br> -->
+    <input type="text"  name="hash" [(ngModel)]="contacli.hash" required><br>
+
 
     <label for="hash">Cliente</label>
     <select [(ngModel)]="clienteSelecionado" class="browser-default" name="cliente">
