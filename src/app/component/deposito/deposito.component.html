@@ -1,11 +1,16 @@
 <div class="form-container" style= "width: 610px;">
-  <form #form="ngForm" (ngSubmit)="onDeposito(form)" novalidate ngForm>
+  <form #form="ngForm" (ngSubmit)="onDeposito(form)" novalidate >
     <h1>Deposito</h1>
     <label for="date">Data</label>
     <p>{{date | date: 'short' : 'pt-br'}}</p>
 
+    <!-- <label for="hash">Chave</label>
+    <input type="text" name="hash" #hash="ngModel" ngModel required><br> -->
+
     <label for="hash">Chave</label>
-    <input type="text" name="hash" #hash="ngModel" ngModel required><br>
+    <select  [(ngModel)]="hashSelecionada" class="browser-default" name="hash">
+      <option required *ngFor="let item of hash;" [value]="item.hash" > {{item.hash}}</option>
+    </select> <br>
 
     <label for="valor">Valor</label>
     <input name="valor" ngModel #valor="ngModel"

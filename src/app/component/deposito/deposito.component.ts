@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Conta } from 'src/app/model/conta.model';
+import { ListContaService } from 'src/app/service/list-conta.service';
 
 
 @Component({
@@ -12,9 +14,12 @@ export class DepositoComponent implements OnInit {
   error: boolean = false;
   errorDesc: string = "";
   date: Date = new Date();
+  hashSelecionada: string = "";
+  hash:Conta [];
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private contaListService: ListContaService) {  
+    this.hash = contaListService.execute();
+  }
   ngOnInit(): void {
   }
 
@@ -28,12 +33,12 @@ export class DepositoComponent implements OnInit {
     if (form.value.hash == "") {
       this.error = true;
       this.errorDesc = "Preencha o hash da conta"
-    } else if (form.value.valor == undefined || form.value.valor == NaN) {
+    } else if (form.value.valor == undefined || form.value.valor == NaN || form.value.valor == "") {
       this.error = true;
       this.errorDesc = "Preencha o valor"
     } else {
       this.error = false;
-      //this.router.navigate(['/dados-conta']);
+      this.router.navigate(['/extrato']);
     }
   }
 

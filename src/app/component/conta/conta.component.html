@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container" style= "width: 610px;">
   <form #formConta="ngForm" (ngSubmit)="onCadastrarConta(formConta)" novalidate>
     <h1>Cadastrar Conta</h1>
     <label for="hash">Chave</label>
@@ -6,7 +6,7 @@
     <input type="text"  name="hash" [(ngModel)]="contacli.hash" required><br>
 
 
-    <label for="hash">Cliente</label>
+    <label for="cliente">Cliente</label>
     <select [(ngModel)]="clienteSelecionado" class="browser-default" name="cliente">
       <option required *ngFor="let item of conta;" [value]="item.cliente"> {{item.cliente}}</option>
     </select> <br>

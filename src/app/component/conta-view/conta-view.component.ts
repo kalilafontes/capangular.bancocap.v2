@@ -18,8 +18,8 @@ export class ContaViewComponent implements OnInit {
 
   colunas = [
     { field: 'cliente', editable: true },
-    { field: 'hash' },
-    { field: 'saldo', valueFormatter: params => this.currencyFormatter(params.data.saldo, 'R$') },
+    { field: 'hash' , editable: true },
+    { field: 'saldo', valueFormatter: params => this.currencyFormatter(params.data.saldo, 'R$') , editable: true },
     {
       headerName: 'Edit',
       cellRenderer: 'buttonRenderer',
